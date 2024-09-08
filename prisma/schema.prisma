@@ -1,0 +1,32 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Sport {
+  id Int @id @default(autoincrement())
+  code String @unique
+  name String @unique
+  paralympic Boolean
+  athletes Athlete[]
+}
+
+model Athlete {
+  id Int @id @default(autoincrement())
+  name String
+  sport Sport @relation(fields: [sportId], references: [id])
+  sportId Int
+  paralympic Boolean
+  instagramUrl String?
+  instagramName String?
+  instagramImageUrl String?
+  instagramFollowersCount Int?
+  instagramFollowingCount Int?
+  instagramPostsCount Int?
+  instagramBio String?
+  updatedAt DateTime @default(now())
+}
