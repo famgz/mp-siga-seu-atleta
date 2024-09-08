@@ -18,8 +18,8 @@ model Sport {
 model Athlete {
   id Int @id @default(autoincrement())
   name String
-  sport Sport @relation(fields: [sportId], references: [id])
-  sportId Int
+  sport Sport? @relation(fields: [sportId], references: [id], onDelete: SetNull)
+  sportId Int?
   paralympic Boolean
   instagramUrl String?
   instagramName String?
