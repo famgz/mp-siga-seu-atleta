@@ -11,3 +11,7 @@ export function formatFollowersCount(count: number) {
   if (count < 1_000_000) return `${count / 1_000}K`;
   return `${count / 1_000_000}M`;
 }
+
+export function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+}

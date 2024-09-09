@@ -1,6 +1,7 @@
 import * as React from 'react';
 
 import { cn } from '@/lib/utils';
+import CardGrainyBackground from '@/components/card-grainy-background';
 
 const Card = React.forwardRef<
   HTMLDivElement,
@@ -8,9 +9,16 @@ const Card = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <div
     ref={ref}
-    className={cn('border bg-card text-card-foreground shadow', className)}
-    {...props}
-  />
+    className={cn(
+      'group relative block bg-card text-card-foreground',
+      className
+    )}
+    {...props}>
+    <div className='relative flex flex-col h-full transform border-2 border-black bg-card transition-transform group-hover:-translate-x-2 group-hover:-translate-y-2 z-10'>
+      {props.children}
+    </div>
+    <CardGrainyBackground />
+  </div>
 ));
 Card.displayName = 'Card';
 
