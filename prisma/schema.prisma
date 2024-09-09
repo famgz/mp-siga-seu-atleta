@@ -21,9 +21,8 @@ model Athlete {
   sport Sport? @relation(fields: [sportId], references: [id], onDelete: SetNull)
   sportId Int?
   paralympic Boolean
-  instagramUrl String?
+  instagramSlug String
   instagramName String?
-  instagramImageUrl String?
   instagramFollowersCount Int?
   instagramFollowingCount Int?
   instagramPostsCount Int?
