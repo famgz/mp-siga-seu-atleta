@@ -6846,6 +6846,7 @@ async function createAthletes() {
 }
 
 async function main() {
+  await createSports();
   await createAthletes();
 }
 
