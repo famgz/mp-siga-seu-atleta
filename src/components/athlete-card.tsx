@@ -7,7 +7,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { baseAvatarImgPath } from '@/constants/image';
+import { BASE_AVATAR_IMG_PATH } from '@/lib/constants';
 import { formatFollowersCount } from '@/lib/utils';
 import { AthleteWithSport } from '@/services/athlete';
 import { InstagramLogoIcon } from '@radix-ui/react-icons';
@@ -19,7 +19,7 @@ interface Props {
 }
 
 export default function AthleteCard({ athlete }: Props) {
-  const avatarImgUrl = `${baseAvatarImgPath}/${athlete.instagramSlug}.jpg`;
+  const avatarImgUrl = `${BASE_AVATAR_IMG_PATH}/${athlete.instagramSlug}.jpg`;
   const accountUrl = `https://instagram.com/${athlete.instagramSlug}`;
 
   return (

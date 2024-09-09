@@ -1,10 +1,10 @@
 import AthleteList from '@/components/athlete-list';
-import { AthleteWithSport, findAthletes } from '@/services/athlete';
+import { findAthletes } from '@/services/athlete';
 import { findSports } from '@/services/sports';
 import { Suspense } from 'react';
 
 export default async function Home() {
-  const athletes = await findAthletes();
+  const athletes = await findAthletes({});
   const sports = await findSports();
 
   return (
