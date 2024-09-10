@@ -11,7 +11,7 @@ import { BASE_AVATAR_IMG_PATH } from '@/lib/constants';
 import { formatFollowersCount } from '@/lib/utils';
 import { AthleteWithSport } from '@/services/athlete';
 import { InstagramLogoIcon } from '@radix-ui/react-icons';
-import { UserRoundIcon } from 'lucide-react';
+import { AccessibilityIcon, UserRoundIcon } from 'lucide-react';
 import Link from 'next/link';
 
 interface Props {
@@ -45,7 +45,15 @@ export default function AthleteCard({ athlete }: Props) {
             </CardDescription>
           </div>
 
-          <div className='font-medium flex gap-1'>
+          {athlete.paralympic && (
+            <div title='Atleta paraolímpico'>
+              <AccessibilityIcon className='size-5' />
+            </div>
+          )}
+
+          <div
+            className='font-medium flex gap-1'
+            title={athlete.instagramFollowersCount?.toString()}>
             <UserRoundIcon className='size-5' />
             {formatFollowersCount(athlete.instagramFollowersCount || 0)}
           </div>

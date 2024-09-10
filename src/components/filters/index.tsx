@@ -1,5 +1,6 @@
 'use client';
 
+import DesktopFilters from '@/components/filters/_components/desktop-filters';
 import { SearchInput } from '@/components/ui/input';
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import { useDebouncedCallback } from 'use-debounce';
@@ -9,6 +10,7 @@ export default function Filters() {
   const { replace } = useRouter();
   const pathname = usePathname();
   const q = searchParams.get('q') || '';
+  const category = searchParams.get('category') || 'all';
 
   const handleSearch = useDebouncedCallback(
     (ev: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,6 +22,13 @@ export default function Filters() {
     },
     200
   );
+
+  function handleCategoryChange(selectedCategory: string) {
+    if (!selectedCategory) return;
+    const params = new URLSearchParams(searchParams);
+    params.set('category', selectedCategory);
+    replace(`${pathname}?${params.toString()}`);
+  }
 
   return (
     <div className='relative flex md:flex-col lg:flex-row gap-8'>
@@ -33,6 +42,11 @@ export default function Filters() {
           onChange={handleSearch}
         />
       </div>
+
+      <DesktopFilters
+        category={category}
+        onCategoryChange={handleCategoryChange}
+      />
     </div>
   );
 }

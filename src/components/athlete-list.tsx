@@ -3,12 +3,13 @@
 import AthleteCard from '@/components/athlete-card';
 import { ATHLETES_PER_PAGE } from '@/lib/constants';
 import { AthleteWithSport, findAthletes } from '@/services/athlete';
+import { Category } from '@/types/sport';
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
 interface Props {
   initialData: AthleteWithSport[];
-  filters: { searchText?: string };
+  filters: { searchText?: string; category?: Category };
 }
 
 export default function AthleteList({ initialData, filters }: Props) {
