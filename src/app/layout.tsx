@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Darker_Grotesque } from 'next/font/google';
+import { Space_Grotesk } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/navbar';
 
@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description: 'Lista de atletlas olímpicos e paraolímpicos do Brasil',
 };
 
-const darkerGrotesque = Darker_Grotesque({ subsets: ['latin'] });
+const darkerGrotesque = Space_Grotesk({ subsets: ['latin'] });
 
 export default function RootLayout({
   children,
