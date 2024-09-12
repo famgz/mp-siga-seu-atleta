@@ -1,13 +1,16 @@
 import { ToggleGroup, ToggleGroupItem } from '@/components/ui/toggle-group';
+import { CategoriesCount } from '@/types/athlete';
 import { Category } from '@/types/sport';
 
 interface Props {
   category: string;
+  categoriesCount: CategoriesCount;
   onCategoryChange: (category: Category) => void;
 }
 
 export default function CategoriesFilter({
   category,
+  categoriesCount,
   onCategoryChange,
 }: Props) {
   return (
@@ -21,15 +24,15 @@ export default function CategoriesFilter({
         value={category}
         onValueChange={onCategoryChange}>
         <ToggleGroupItem value='all' aria-label='Selecionar todos'>
-          Todos
+          Todos ({categoriesCount.all})
         </ToggleGroupItem>
         <ToggleGroupItem value='olympic' aria-label='Selecionar Olímpicos'>
-          Olímpicos
+          Olímpicos ({categoriesCount.olympic})
         </ToggleGroupItem>
         <ToggleGroupItem
           value='paralympic'
           aria-label='Selecionar Paralímpicos'>
-          Paralímpicos
+          Paralímpicos ({categoriesCount.paralympic})
         </ToggleGroupItem>
       </ToggleGroup>
     </div>
