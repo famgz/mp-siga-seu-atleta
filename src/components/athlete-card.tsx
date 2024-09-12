@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/card';
 import { BASE_AVATAR_IMG_PATH } from '@/lib/constants';
 import { formatFollowersCount } from '@/lib/utils';
-import { AthleteWithSport } from '@/services/athlete';
+import { AthleteWithSport } from '@/types/athlete';
 import { InstagramLogoIcon } from '@radix-ui/react-icons';
 import { AccessibilityIcon, UserRoundIcon } from 'lucide-react';
 import Link from 'next/link';

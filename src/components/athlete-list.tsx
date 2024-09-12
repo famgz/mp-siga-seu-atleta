@@ -2,7 +2,8 @@
 
 import AthleteCard from '@/components/athlete-card';
 import { ATHLETES_PER_PAGE } from '@/lib/constants';
-import { AthleteWithSport, findAthletes } from '@/services/athlete';
+import { findAthletes } from '@/services/athlete';
+import { AthleteWithSport } from '@/types/athlete';
 import { Category } from '@/types/sport';
 import { useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
