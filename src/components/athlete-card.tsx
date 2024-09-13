@@ -1,3 +1,4 @@
+import SportIcon from '@/components/filters/_components/sport-icon';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
   Card,
@@ -40,7 +41,8 @@ export default function AthleteCard({ athlete }: Props) {
             <CardTitle className='text-lg font-bold truncate'>
               {athlete.instagramName || 'Atleta'}
             </CardTitle>
-            <CardDescription className='text-sm truncate'>
+            <CardDescription className='text-sm truncate flex items-center gap-2'>
+              <SportIcon sportCode={athlete.sport!.code} size={16} />
               {athlete.sport!.name}
             </CardDescription>
           </div>
