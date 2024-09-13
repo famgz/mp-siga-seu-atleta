@@ -12,11 +12,12 @@ export default function About() {
     <Dialog>
       <DialogTrigger>Sobre</DialogTrigger>
       <DialogContent>
-        <DialogHeader>
+        <DialogHeader className='space-y-6'>
           <DialogTitle>Sobre o projeto</DialogTitle>
           <DialogDescription>
             <p>
-              Esse é um projeto criado com carinho pelo{' '}
+              Esse é um projeto fullstack criado através de iniciativa da
+              plataforma{' '}
               <a
                 href='https://codante.io'
                 target='_blank'
@@ -28,19 +29,14 @@ export default function About() {
             </p>
             <br />
             <p>
-              Se você encontrou alguma informação incorreta ou sentiu falta de
-              algum atleta, por favor, entre em contato conosco pelo email:{' '}
-              <span className='font-bold'>contato@codante.io</span>
-            </p>
-            <br />
-            <p>
-              Nós somos uma plataforma para quem quer aprender programação
-              front-end. Se você quer aprender a criar sites como esse, acesse:{' '}
+              Confira o código completo no{' '}
               <a
-                className='text-yellow-500 font-bold'
-                href='https://codante.io'>
-                codante.io
+                href='https://github.com/famgz/siga-seu-atleta'
+                target='_blank'
+                className='text-yellow-500 font-bold'>
+                repositório do projeto
               </a>
+              .
             </p>
           </DialogDescription>
         </DialogHeader>
