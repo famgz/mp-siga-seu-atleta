@@ -14,7 +14,7 @@ export default function CategoriesFilter({
   onCategoryChange,
 }: Props) {
   return (
-    <div className='flex flex-col md:flex-row items-center gap-1 mt-10 md:mt-0'>
+    <div className='flex flex-col md:flex-row items-center gap-1 md:mt-0'>
       <span className='text-sm underline decoration-yellow-500 block md:hidden'>
         Categoria:
       </span>

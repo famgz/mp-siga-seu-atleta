@@ -41,6 +41,7 @@ export default async function Home({ searchParams }: Props) {
   return (
     <main className='p-4 flex flex-col gap-12'>
       <Filters sports={sports} categoriesCount={categoriesCount} />
+
       <Suspense
         key={searchText + category + sportCode + sort + sortDir}
         fallback={<div>Carregando...</div>}>

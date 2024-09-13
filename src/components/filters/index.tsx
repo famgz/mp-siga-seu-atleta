@@ -1,6 +1,7 @@
 'use client';
 
 import DesktopFilters from '@/components/filters/_components/desktop-filters';
+import MobileFilters from '@/components/filters/_components/mobile-filters';
 import { SearchInput } from '@/components/ui/input';
 import { CategoriesCount } from '@/types/athlete';
 import { SportWithCount } from '@/types/sport';
@@ -16,6 +17,8 @@ export default function Filters({ sports, categoriesCount }: Props) {
   const searchParams = useSearchParams();
   const { replace } = useRouter();
   const pathname = usePathname();
+  // const isMobile = useMediaQuery('only screen and (max-width: 768px)');  // causes hydration error, maybe it loads after the rendering
+
   const q = searchParams.get('q') || '';
   const category = searchParams.get('category') || 'all';
   const sport = searchParams.get('sport') || '';
@@ -71,29 +74,44 @@ export default function Filters({ sports, categoriesCount }: Props) {
 
   return (
     <div className='relative flex md:flex-col lg:flex-row gap-8'>
-      <div>
-        <SearchInput
-          className='w-full lg:w-56'
-          type='text'
-          name='q'
-          placeholder='Pesquisar'
-          defaultValue={q}
-          onChange={handleSearchChange}
+      <SearchInput
+        className='w-full lg:w-56'
+        type='text'
+        name='q'
+        placeholder='Pesquisar'
+        defaultValue={q}
+        onChange={handleSearchChange}
+      />
+
+      <div className='md:hidden'>
+        <MobileFilters
+          category={category}
+          onCategoryChange={handleCategoryChange}
+          sports={sports}
+          sportCode={sport}
+          categoriesCount={categoriesCount}
+          onSportChange={handleSportChange}
+          sort={sort}
+          onSortByChange={handleSortByChange}
+          sortDir={sortDir}
+          onDirectionChange={handleSortDirectionChange}
         />
       </div>
 
-      <DesktopFilters
-        category={category}
-        onCategoryChange={handleCategoryChange}
-        sports={sports}
-        sportCode={sport}
-        categoriesCount={categoriesCount}
-        onSportChange={handleSportChange}
-        sort={sort}
-        onSortByChange={handleSortByChange}
-        sortDir={sortDir}
-        onDirectionChange={handleSortDirectionChange}
-      />
+      <div className='hidden md:block'>
+        <DesktopFilters
+          category={category}
+          onCategoryChange={handleCategoryChange}
+          sports={sports}
+          sportCode={sport}
+          categoriesCount={categoriesCount}
+          onSportChange={handleSportChange}
+          sort={sort}
+          onSortByChange={handleSortByChange}
+          sortDir={sortDir}
+          onDirectionChange={handleSortDirectionChange}
+        />
+      </div>
     </div>
   );
 }
