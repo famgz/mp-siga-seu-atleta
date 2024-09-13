@@ -17,7 +17,7 @@ export default function DesktopFilters({
 }: FilterProps) {
   return (
     <div className='flex w-full justify-between'>
-      <div className='flex gap-8'>
+      <div className='flex gap-8 items-center'>
         <CategoriesFilter
           category={category}
           categoriesCount={categoriesCount}

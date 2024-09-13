@@ -31,7 +31,7 @@ export default function SortBy({
           defaultValue='followers'
           value={sort}
           onValueChange={onSortByChange}>
-          <SelectTrigger className='w-32'>
+          <SelectTrigger className='w-32 h-9 ml-1'>
             <SelectValue placeholder='Seguidores' />
           </SelectTrigger>
 
@@ -41,7 +41,7 @@ export default function SortBy({
             <SelectItem value='sport'>Esporte</SelectItem>
           </SelectContent>
 
-          <Button onClick={onDirectionChange} type='button'>
+          <Button onClick={onDirectionChange} type='button' className='h-9'>
             {sortDir === 'desc' ? (
               <ArrowDownWideNarrowIcon />
             ) : (

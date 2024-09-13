@@ -48,7 +48,7 @@ export default function SportsFilter({
   }
 
   return (
-    <div className='flex flex-col md:flex-row items-center gap-1'>
+    <div className='flex flex-col md:flex-row items-center gap-1 h-9'>
       <span className='text-sm underline decoration-yellow-500 block md:hidden'>
         Esporte:
       </span>

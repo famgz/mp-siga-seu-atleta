@@ -14,7 +14,7 @@ export default function CategoriesFilter({
   onCategoryChange,
 }: Props) {
   return (
-    <div className='flex flex-col md:flex-row items-center gap-1 md:mt-0'>
+    <div className='flex flex-col md:flex-row items-center gap-1 md:mt-0 '>
       <span className='text-sm underline decoration-yellow-500 block md:hidden'>
         Categoria:
       </span>
@@ -23,15 +23,22 @@ export default function CategoriesFilter({
         type='single'
         value={category}
         onValueChange={onCategoryChange}>
-        <ToggleGroupItem value='all' aria-label='Selecionar todos'>
+        <ToggleGroupItem
+          value='all'
+          aria-label='Selecionar todos'
+          className='whitespace-nowrap'>
           Todos ({categoriesCount.all})
         </ToggleGroupItem>
-        <ToggleGroupItem value='olympic' aria-label='Selecionar Olímpicos'>
+        <ToggleGroupItem
+          value='olympic'
+          aria-label='Selecionar Olímpicos'
+          className='whitespace-nowrap'>
           Olímpicos ({categoriesCount.olympic})
         </ToggleGroupItem>
         <ToggleGroupItem
           value='paralympic'
-          aria-label='Selecionar Paralímpicos'>
+          aria-label='Selecionar Paralímpicos'
+          className='whitespace-nowrap'>
           Paralímpicos ({categoriesCount.paralympic})
         </ToggleGroupItem>
       </ToggleGroup>

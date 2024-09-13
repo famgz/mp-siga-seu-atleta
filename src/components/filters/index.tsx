@@ -73,9 +73,9 @@ export default function Filters({ sports, categoriesCount }: Props) {
   }
 
   return (
-    <div className='relative flex md:flex-col lg:flex-row gap-8'>
+    <div className='relative items-center flex md:flex-col lg:flex-row gap-8'>
       <SearchInput
-        className='w-full lg:w-56'
+        className='lg:w-56'
         type='text'
         name='q'
         placeholder='Pesquisar'
