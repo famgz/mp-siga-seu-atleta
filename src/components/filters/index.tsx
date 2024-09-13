@@ -19,6 +19,8 @@ export default function Filters({ sports, categoriesCount }: Props) {
   const q = searchParams.get('q') || '';
   const category = searchParams.get('category') || 'all';
   const sport = searchParams.get('sport') || '';
+  const sort = searchParams.get('sort') || '';
+  const sortDir = searchParams.get('sortDir') || 'desc';
 
   function updateUrl(params: URLSearchParams) {
     replace(`${pathname}?${params.toString()}`);
@@ -55,6 +57,18 @@ export default function Filters({ sports, categoriesCount }: Props) {
     updateUrl(params);
   }
 
+  function handleSortByChange(selectedSort: string) {
+    const params = new URLSearchParams(searchParams);
+    params.set('sort', selectedSort);
+    updateUrl(params);
+  }
+
+  function handleSortDirectionChange() {
+    const params = new URLSearchParams(searchParams);
+    params.set('sortDir', sortDir === 'desc' ? 'asc' : 'desc');
+    updateUrl(params);
+  }
+
   return (
     <div className='relative flex md:flex-col lg:flex-row gap-8'>
       <div>
@@ -75,6 +89,10 @@ export default function Filters({ sports, categoriesCount }: Props) {
         sportCode={sport}
         categoriesCount={categoriesCount}
         onSportChange={handleSportChange}
+        sort={sort}
+        onSortByChange={handleSortByChange}
+        sortDir={sortDir}
+        onDirectionChange={handleSortDirectionChange}
       />
     </div>
   );

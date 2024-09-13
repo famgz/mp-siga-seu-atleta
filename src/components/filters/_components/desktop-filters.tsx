@@ -1,4 +1,5 @@
 import CategoriesFilter from '@/components/filters/_components/categories-filter';
+import SortBy from '@/components/filters/_components/sort-by';
 import SportsFilter from '@/components/filters/_components/sports-filter';
 import { CategoriesCount } from '@/types/athlete';
 import { Category, SportWithCount } from '@/types/sport';
@@ -10,6 +11,10 @@ interface Props {
   categoriesCount: CategoriesCount;
   onCategoryChange: (category: Category) => void;
   onSportChange: (sportCode: string) => void;
+  sort: string;
+  onSortByChange: (sort: string) => void;
+  sortDir: string;
+  onDirectionChange: () => void;
 }
 
 export default function DesktopFilters({
@@ -19,6 +24,10 @@ export default function DesktopFilters({
   onSportChange,
   sports,
   sportCode,
+  sort,
+  onSortByChange,
+  sortDir,
+  onDirectionChange,
 }: Props) {
   return (
     <div className='flex w-full justify-between'>
@@ -35,6 +44,13 @@ export default function DesktopFilters({
           onSportChange={onSportChange}
         />
       </div>
+
+      <SortBy
+        sort={sort}
+        onSortByChange={onSortByChange}
+        sortDir={sortDir}
+        onDirectionChange={onDirectionChange}
+      />
     </div>
   );
 }

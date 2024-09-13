@@ -9,3 +9,7 @@ export type CategoriesCount = {
   paralympic: number;
   olympic: number;
 };
+
+export type AthleteSort = 'followers' | 'name' | 'sport';
+
+export type AthleteSortDir = 'desc' | 'asc';

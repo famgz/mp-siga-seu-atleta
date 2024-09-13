@@ -2,8 +2,14 @@
 
 import { ATHLETES_PER_PAGE } from '@/lib/constants';
 import { db } from '@/lib/prisma';
-import { AthleteWithSport, CategoriesCount } from '@/types/athlete';
+import {
+  AthleteSort,
+  AthleteSortDir,
+  AthleteWithSport,
+  CategoriesCount,
+} from '@/types/athlete';
 import { Category } from '@/types/sport';
+import { Prisma } from '@prisma/client';
 
 interface GetCategoriesCountProps {
   searchText?: string;
@@ -14,6 +20,8 @@ interface FindAthletesProps extends GetCategoriesCountProps {
   category?: Category;
   offset?: number;
   limit?: number;
+  sort?: AthleteSort;
+  sortDir?: AthleteSortDir;
 }
 
 const isParalympic = (category: Category) =>
@@ -64,12 +72,34 @@ export async function getCategoriesCount({
   };
 }
 
+function getOrderBy(
+  sort?: AthleteSort,
+  sortDir?: AthleteSortDir
+): Prisma.AthleteOrderByWithRelationInput {
+  if (sortDir && !['asc', 'desc'].includes(sortDir)) {
+    sortDir = 'desc';
+  }
+
+  switch (sort) {
+    case 'followers':
+      return { instagramFollowersCount: sortDir || 'desc' };
+    case 'name':
+      return { instagramName: sortDir || 'asc' };
+    case 'sport':
+      return { sport: { name: sortDir || 'asc' } };
+    default:
+      return { instagramFollowersCount: 'desc' };
+  }
+}
+
 export async function findAthletes({
   offset = 0,
   limit = ATHLETES_PER_PAGE,
   searchText,
   category = 'all',
   sportCode,
+  sort,
+  sortDir,
 }: FindAthletesProps): Promise<AthleteWithSport[]> {
   const paralympic = isParalympic(category);
 
@@ -108,9 +138,7 @@ export async function findAthletes({
         },
       ],
     },
-    orderBy: {
-      instagramFollowersCount: 'desc',
-    },
+    orderBy: getOrderBy(sort, sortDir),
   });
 
   return athletes;
