@@ -1,5 +1,7 @@
 # Siga seu atleta | App Next.js fullstack
 
+![desktop](https://raw.githubusercontent.com/famgz/famgz/main/presentations/siga-seu-atleta/0.jpg)
+
 Nesse projeto vamos criar uma aplicação para dar visibilidade para os atletas paralímpicos e olímpicos do Brasil. A ideia é listar todos os atletas e suas contas do Instagram, filtrando por modalidades.
 
 
