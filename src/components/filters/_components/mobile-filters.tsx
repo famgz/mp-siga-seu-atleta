@@ -43,7 +43,7 @@ export default function MobileFilters({
         </Button>
       </DrawerTrigger>
 
-      <DrawerContent className='p-4 flex flex-col gap-4'>
+      <DrawerContent className='p-4 flex flex-col gap-6'>
         <CategoriesFilter
           category={category}
           categoriesCount={categoriesCount}
