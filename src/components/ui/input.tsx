@@ -26,7 +26,7 @@ Input.displayName = 'Input';
 const SearchInput = React.forwardRef<HTMLInputElement, InputProps>(
   ({ className, type, ...props }, ref) => {
     return (
-      <div className='relative w-full'>
+      <div className='relative flex-1'>
         <SearchIcon className='absolute size-4 left-3 top-1/2 transform -translate-y-1/2 text-gray-900' />
         <input
           type={type}
